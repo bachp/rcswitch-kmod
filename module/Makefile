@@ -1,19 +1,10 @@
-##
-# Simple toplevel Makefile to build rcswitch kmod package 
-#
-# Stefan Wendler, sw@kaltpost.de 
-##
+KDIR ?= /lib/modules/`uname -r`/build
 
-all: build 
+default:
+	$(MAKE) -C $(KDIR) M=$$PWD
 
-build: 
-	(cd ./src && make)
-
-deploy: build
-	mkdir -p ./deploy/opt/rcswitch/modules
-	cp ./src/rcswitch.ko ./deploy/opt/rcswitch/modules/.
-	(cd ./deploy && tar -zcvf rcswitch.tgz opt/) 
+modules_install:
+	$(MAKE) -C $(KDIR) M=$$PWD modules_install
 
 clean:
-	(cd ./src && make clean)
-	rm -fr ./deploy
+	$(MAKE) -C $(KDIR) M=$$PWD clean

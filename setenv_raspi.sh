@@ -10,7 +10,7 @@
 # NOTE: you could conde the latest RasPi Kernle from git: 
 # git clone https://github.com/raspberrypi/linux.git linux-raspberrypi
 #
-export LINUX_DIR=$PWD/../linux-raspberrypi
+export KDIR=$PWD/../linux-raspberrypi
 
 # Add arm-gcc to PATH
 #

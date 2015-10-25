@@ -2,6 +2,8 @@ RCSwitch Linux Kernel module - operates 434MHz RCSwitches
 =========================================================
 18.07.2014 Stefan Wendler
 sw@kaltpost.de
+25.10.2015 Pascal Bach
+pascal.bach@nextrem.ch
 
 Kernel module to operate RC power outlets (switches) through SYSFS. The module
 was devoped for a MIPS based Carambola board, but should run on any other Linux
@@ -29,7 +31,6 @@ Project Directory Layout
 The top-level directory structure of the project looks something like this:
 
 * `Makefile` 		toplevel Make file
-* `Makefile.kmod`	include for building kernel modules
 * `README.md`		this README
 * `setenv_*.sh`		source to set cross-compile environment
 * `module`		the kernel module
@@ -76,7 +77,7 @@ To compile the kernel module:
 Installing on the target
 ------------------------
 
-Copy the `rcswitch.ko` found in `module/src` to your target (e.g. to `/opt/rcswitch/module/`.
+Copy the `rcswitch.ko` found in `module` to your target (e.g. to `/opt/rcswitch/module/`.
 
 
 Loading the module on the target

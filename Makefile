@@ -1,20 +1,23 @@
 ##
-# Simple toplevel Makefile to build SRF05 packages 
+# Simple toplevel Makefile to build rcswitch package
 #
-# Stefan Wendler, sw@kaltpost.de 
+# Stefan Wendler, sw@kaltpost.de
+# Pascal Bach, pascal.bach@nextrem.ch
 ##
 
-all: build 
+all: build
 
-build: 
-	make -C ./module
+build:
+	make -C module
+
+modules_install: build
+	make -C module modules_install
+
+clean:
+	make -C module clean
+	rm -rf deploy
 
 deploy: build
-	make -C ./module deploy 
-	mkdir -p ./deploy
-	cp -a ./module/deploy/opt ./deploy
-	(cd ./deploy && tar -zcvf rcswitch-kmod.tgz opt/) 
-	
-clean:
-	make -C ./module clean
-	rm -fr ./deploy
+	mkdir -p deploy/opt/rcswitch/modules
+	cp module/rcswitch.ko deploy/opt/rcswitch/modules/
+	(cd deploy && tar -zcvf rcswitch-kmod.tgz opt/)

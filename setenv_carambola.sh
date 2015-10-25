@@ -9,7 +9,7 @@
 export OPENWRT_DIR=$PWD/../brick-o-lage/carambola/
 
 # Linux source code location 
-export LINUX_DIR=$OPENWRT_DIR/build_dir/linux-ramips_rt305x/linux-3.3.8
+export KDIR=$OPENWRT_DIR/build_dir/linux-ramips_rt305x/linux-3.3.8
 
 # Staging dir from OpenWrt build
 export STAGING_DIR=$OPENWRT_DIR/staging_dir
